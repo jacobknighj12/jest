@@ -1,17 +1,27 @@
-const isCool = require('./isCool');
+const myModule = require('./isCool')
+const isCool = myModule.isCool;
+const capitalize = myModule.capitalize;
 
-test('is cool?', () => {
-    expect(isCool('Jacob')).toBeTruthy()
+beforeEach(() => {
+    console.log('beforeEach')
 })
 
-test('is cool?', () => {
-    expect(isCool(' Jacob')).toBeTruthy()
+afterEach(() => {
+    console.log('after each')
 })
+describe('is cool', () => {
+    test('is cool?', () => {
+        expect(isCool('Jacob')).toBeTruthy()
+    })
 
-test('is cool? with trailing and leading white space with lowercase', () => {
-    expect(isCool('  jacob  ')).toBeTruthy()
+    test('is cool?', () => {
+        expect(isCool(' Jacob')).toBeTruthy()
+    })
+
+    test('is cool? with trailing and leading white space with lowercase', () => {
+        expect(isCool('  jacob  ')).toBeTruthy()
+    })
 })
-
 test('is cool?', () => {
     expect(isCool('Jarrod')).toBeFalsy()
 })

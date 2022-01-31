@@ -5,4 +5,7 @@ function isCool(name) {
     const coolPeople = ['Jacob', 'Kate']
     return coolPeople.includes(capitalize(name.trim()))
 }
-module.exports = isCool;
+module.exports = {
+    capitalize: capitalize,
+    isCool: isCool,
+};
